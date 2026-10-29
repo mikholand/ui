@@ -696,5 +696,5 @@ function init(root) {
   return made;
 }
 
-export var version = "0.1.0";
+export var version = "0.1.1";
 export { init, segmented, tabs, select, app, menu, popover, pagination, placeFloating };

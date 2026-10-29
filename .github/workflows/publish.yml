@@ -1,6 +1,7 @@
 name: Publish
 # Публикация в npm при публикации GitHub Release с тегом вида v0.2.0.
-# Нужен секрет репозитория NPM_TOKEN (после перехода на trusted publishing — не нужен).
+# Аутентификация через trusted publishing (OIDC): npm-токен не нужен.
+# Настройка на npmjs.com: пакет → Settings → Trusted Publisher → GitHub Actions, mikholand / ui / publish.yml.
 on:
   release:
     types: [published]
@@ -14,7 +15,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Для trusted publishing нужен npm 11.5.1+, он идёт с Node 24
+          node-version: 24
           cache: npm
           registry-url: https://registry.npmjs.org
       - name: Тег совпадает с версией в package.json
@@ -24,6 +26,5 @@ jobs:
           if [ "$VERSION" != "$TAG" ]; then echo "Тег $GITHUB_REF_NAME не совпадает с версией $VERSION в package.json"; exit 1; fi
       - run: npm ci
       - run: npm run check
+      - run: npm --version
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

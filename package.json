@@ -1,6 +1,6 @@
 {
   "name": "@mikholand/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "mikholand UI — плотная дизайн-система для рабочих интерфейсов и Telegram Mini App: токены, CSS-компоненты, поведение без зависимостей и React-обёртки",
   "type": "module",
   "license": "MIT",
