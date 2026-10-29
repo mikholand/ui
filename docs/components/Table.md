@@ -25,6 +25,33 @@
 
 В карточке таблица идёт в `mk-card__body--flush`.
 
+
+## React
+
+```tsx
+import { Table, SortHeader, CellText, EmptyState, Status } from "@mikholand/ui/react";
+
+<Table>
+  <thead>
+    <tr>
+      <th scope="col">Заказ</th>
+      <SortHeader numeric sort={sort} onSort={toggleSort}>Сумма</SortHeader>
+      <th scope="col">Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+    {orders.map((o) => (
+      <tr key={o.id} aria-selected={o.id === selected}>
+        <td><CellText primary={o.id} secondary={o.when} /></td>
+        <td className="mk-num">{o.sum}</td>
+        <td className="mk-shrink"><Status tone={o.tone}>{o.status}</Status></td>
+      </tr>
+    ))}
+  </tbody>
+</Table>
+{orders.length === 0 && <EmptyState title="Нет заказов за период">Попробуйте выбрать другой период</EmptyState>}
+```
+
 ## Классы ячеек
 
 | Класс | Когда |

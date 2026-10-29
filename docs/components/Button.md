@@ -10,6 +10,24 @@
 
 Ссылка, которая выглядит как кнопка, — тот же класс на `<a>`.
 
+
+## React
+
+```tsx
+import { Button, buttonClass } from "@mikholand/ui/react";
+import { Download, MoreHorizontal } from "lucide-react";
+
+<Button variant="primary">Сохранить</Button>
+<Button icon={<Download />}>Экспорт</Button>
+<Button variant="ghost" iconOnly icon={<MoreHorizontal />} aria-label="Ещё действия" />
+<Button variant="primary" busy>Сохраняем</Button>
+
+// Ссылка, оформленная как кнопка (например, next/link):
+<Link href="/orders/new" className={buttonClass({ variant: "primary" })}>Новый заказ</Link>
+```
+
+Пропсы: `variant` (`primary`, `secondary` по умолчанию, `ghost`, `danger`), `icon` (справа от текста), `iconOnly`, `block`, `hideOnMobile`, `busy` (недоступна, не бледнеет, спиннер справа), плюс все атрибуты `<button>`.
+
 ## Варианты
 
 | Класс | Когда |

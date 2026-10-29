@@ -13,6 +13,22 @@
 
 `mk-segmented--block` растягивает переключатель на всю ширину, например на mobile.
 
+
+## React
+
+```tsx
+import { Segmented } from "@mikholand/ui/react";
+
+<Segmented
+  aria-label="Период графика"
+  options={[{ value: "day", label: "День" }, { value: "week", label: "Неделя" }, { value: "month", label: "Месяц" }]}
+  value={view}
+  onChange={setView}
+/>
+```
+
+Пропсы: `options`, `value` или `defaultValue`, `onChange(value)`, обязательный `aria-label`, `block`.
+
 ## Поведение
 
 - Роль `radiogroup`, у кнопок `role="radio"` и `aria-checked`; скрипт расставит их сам.

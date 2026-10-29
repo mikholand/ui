@@ -16,6 +16,22 @@ Checkbox для независимых настроек и множествен�
 </fieldset>
 ```
 
+
+## React
+
+```tsx
+import { Checkbox, Radio, ChoiceGroup } from "@mikholand/ui/react";
+
+<ChoiceGroup label="Уведомления">
+  <Checkbox checked={orders} onChange={(e) => setOrders(e.target.checked)}>Новые заказы</Checkbox>
+  <Checkbox indeterminate={someSelected}>Все каналы</Checkbox>
+</ChoiceGroup>
+<ChoiceGroup label="Доставка" kind="radio">
+  <Radio name="ship" value="courier" defaultChecked hint="1–2 дня, 390 ₽">Курьер</Radio>
+  <Radio name="ship" value="pickup">Самовывоз</Radio>
+</ChoiceGroup>
+```
+
 ## Правила
 
 - Подпись всегда внутри `<label>`, кликается вся строка.

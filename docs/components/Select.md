@@ -16,6 +16,27 @@
 
 Нативный `<select>` остаётся источником значения: форма отправляет его, событие `change` срабатывает на нём. Пустой скрытый вариант даёт плейсхолдер из `data-placeholder`.
 
+
+## React
+
+```tsx
+import { Field, Select } from "@mikholand/ui/react";
+
+<Field label="Период">
+  {(f) => (
+    <Select
+      {...f}
+      options={[{ value: "7d", label: "Последние 7 дней" }, { value: "30d", label: "Последние 30 дней" }]}
+      value={period}
+      onChange={setPeriod}
+    />
+  )}
+</Field>
+<Select placeholder="Все категории" options={categories} name="category" />
+```
+
+Пропсы: `options` (`{ value, label, disabled? }`), `value` или `defaultValue`, `onChange(value)`, `placeholder`, `name`, `id`, `disabled`. Нативный `<select>` внутри остаётся, поэтому значение уходит в форму как обычно.
+
 ## Поведение
 
 - Dropdown рендерится в `body` с `position: fixed`, поэтому его не обрезает карточка или таблица с `overflow`.

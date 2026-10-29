@@ -1,7 +1,10 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { cx } from "./utils.js";
 
-export function Card({ className, children, ...rest }: HTMLAttributes<HTMLElement>) {
+/** Карточка виджета. Принимает все атрибуты <section>. */
+export type CardProps = HTMLAttributes<HTMLElement>;
+
+export function Card({ className, children, ...rest }: CardProps) {
   return <section className={cx("mk-card", className)} {...rest}>{children}</section>;
 }
 

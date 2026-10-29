@@ -18,6 +18,21 @@
 
 Для таблицы или списка во всю ширину карточки — `mk-card__body mk-card__body--flush`.
 
+
+## React
+
+```tsx
+import { Card, CardHeader, CardBody, CardFooter, Masonry, Button } from "@mikholand/ui/react";
+
+<Card>
+  <CardHeader title="Очередь отправки" description="Нужно отправить сегодня" actions={<Button variant="ghost">Все</Button>} />
+  <CardBody>5 заказов, самый ранний принят вчера в 21:17.</CardBody>
+  <CardFooter><Button variant="primary">Вызвать курьера</Button></CardFooter>
+</Card>
+```
+
+Для таблицы во всю ширину — `<CardBody flush>`. Разновысотные карточки раскладывай в `<Masonry>`.
+
 ## Раскладка нескольких карточек
 
 - Однотипные карточки одной высоты — grid с `gap: var(--space-4)`.

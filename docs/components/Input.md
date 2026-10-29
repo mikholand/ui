@@ -12,6 +12,23 @@
 
 `textarea` получает тот же класс `mk-input` и минимальную высоту 88px.
 
+
+## React
+
+```tsx
+import { Field, Input, Textarea } from "@mikholand/ui/react";
+
+<Field label="Название канала" hint="Видно покупателям">
+  {(f) => <Input {...f} value={name} onChange={(e) => setName(e.target.value)} />}
+</Field>
+<Field label="Цена, ₽" error={priceError}>
+  {(f) => <Input {...f} inputMode="numeric" />}
+</Field>
+<Field label="Описание">{(f) => <Textarea {...f} />}</Field>
+```
+
+`Field` создаёт id, связывает подпись и подсказку через `aria-describedby`, а при `error` ставит полю `aria-invalid`. Аргумент `f` передаётся в поле целиком.
+
 ## Ошибка
 
 Поставь `aria-invalid="true"` на поле, замени подсказку на `mk-hint mk-hint--error` и свяжи их через `aria-describedby`. Текст ошибки говорит, что исправить: «Введите число, например 1 290».

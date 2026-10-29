@@ -12,6 +12,22 @@
 
 Номер шага ставится автоматически, у пройденных шагов — галочка.
 
+
+## React
+
+```tsx
+import { Stepper } from "@mikholand/ui/react";
+
+<Stepper
+  aria-label="Подключение канала"
+  steps={[
+    { title: "Канал", description: "@keramika_ru", state: "done" },
+    { title: "Товары", description: "Разбираем посты", state: "current" },
+    { title: "Оплата", state: "upcoming" },
+  ]}
+/>
+```
+
 ## Правила
 
 - Только для пошаговых сценариев: подключение, онбординг внутри продукта, оформление. Для истории событий — StepLog.

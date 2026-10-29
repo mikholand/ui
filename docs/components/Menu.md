@@ -16,6 +16,27 @@
 
 `data-align="start"` выравнивает меню по левому краю кнопки, по умолчанию — по правому. Группы подписываются `mk-menu__label`, разделяются `mk-menu__sep`.
 
+
+## React
+
+```tsx
+import { Menu, Button } from "@mikholand/ui/react";
+
+<Menu
+  trigger={<Button icon={<ChevronDown />}>Действия</Button>}
+  align="start"
+  aria-label="Действия с заказом"
+  items={[
+    { label: "Редактировать", icon: <Pencil />, hint: "E", onSelect: edit },
+    { label: "Счёт", icon: <FileText />, disabled: !hasRequisites },
+    { separator: true },
+    { label: "Удалить заказ", icon: <Trash2 />, danger: true, onSelect: remove },
+  ]}
+/>
+```
+
+Панель рендерится порталом в `body`: обработчики `onSelect` работают как обычно. Группы — `{ group: "Экспорт" }`.
+
 ## Поведение
 
 - Меню переносится в `body` и позиционируется `fixed`, поэтому его не обрезают карточки и таблицы. Открывается вниз, при нехватке места — вверх.

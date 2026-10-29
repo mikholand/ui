@@ -14,6 +14,18 @@ Progress bar для операций с известным процентом и
 <button class="mk-btn mk-btn--primary" disabled aria-busy="true">Сохраняем <span class="mk-spinner" aria-hidden="true"></span></button>
 ```
 
+
+## React
+
+```tsx
+import { Progress, Spinner, Button } from "@mikholand/ui/react";
+
+<Progress value={64} label="Загрузка каталога" />
+<Spinner size="lg" label="Загружаем заказы" />
+<Spinner size="sm" tone="neutral" decorative />  {/* рядом с текстом статуса */}
+<Button variant="primary" busy>Сохраняем</Button>
+```
+
 ## Варианты спиннера
 
 | Класс | Когда |

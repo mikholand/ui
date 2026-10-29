@@ -3,7 +3,10 @@ import { ChevronDown } from "./icons.js";
 import { cx } from "./utils.js";
 
 /** Таблица в контейнере с собственным горизонтальным скроллом. Разметку строк пишешь обычными tr/td. */
-export function Table({ className, children, ...rest }: TableHTMLAttributes<HTMLTableElement>) {
+/** Атрибуты <table>; строки и ячейки пишутся обычными thead/tbody/tr/td. */
+export type TableProps = TableHTMLAttributes<HTMLTableElement>;
+
+export function Table({ className, children, ...rest }: TableProps) {
   return (
     <div className="mk-table-wrap">
       <table className={cx("mk-table", className)} {...rest}>{children}</table>

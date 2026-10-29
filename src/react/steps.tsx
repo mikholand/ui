@@ -12,7 +12,13 @@ export interface StepperStep {
 }
 
 /** Шаги мастера. До 520px складываются в колонку. */
-export function Stepper({ steps, className, ...aria }: { steps: StepperStep[]; className?: string; "aria-label"?: string }) {
+export interface StepperProps {
+  steps: StepperStep[];
+  "aria-label"?: string;
+  className?: string;
+}
+
+export function Stepper({ steps, className, ...aria }: StepperProps) {
   return (
     <ol className={cx("mk-stepper", className)} {...aria}>
       {steps.map((s, i) => (
@@ -35,7 +41,13 @@ export interface StepLogItem {
 }
 
 /** Лог шагов процесса. Текущий шаг объявляется скринридеру. */
-export function StepLog({ items, className, ...aria }: { items: StepLogItem[]; className?: string; "aria-label"?: string }) {
+export interface StepLogProps {
+  items: StepLogItem[];
+  "aria-label"?: string;
+  className?: string;
+}
+
+export function StepLog({ items, className, ...aria }: StepLogProps) {
   return (
     <ol className={cx("mk-steplog", className)} {...aria}>
       {items.map((it, i) => (

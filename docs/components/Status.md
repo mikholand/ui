@@ -7,6 +7,19 @@
 <span class="mk-status">Черновик</span>
 ```
 
+
+## React
+
+```tsx
+import { Status } from "@mikholand/ui/react";
+
+<Status tone="success" dot>Оплачен</Status>
+<Status tone="process">В сборке</Status>
+<Status>Черновик</Status>
+```
+
+`tone`: `success`, `warning`, `danger`, `process`, `neutral` по умолчанию; `dot` добавляет точку.
+
 ## Варианты
 
 | Класс | Смысл |

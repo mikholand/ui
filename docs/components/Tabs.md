@@ -16,6 +16,25 @@
 
 Панели сопоставляются вкладкам по порядку. Роли `tablist`, `tab`, `tabpanel`, связи `aria-controls` и `aria-labelledby` скрипт расставит сам.
 
+
+## React
+
+```tsx
+import { Tabs } from "@mikholand/ui/react";
+
+<Tabs
+  aria-label="Заказы"
+  index={tab}
+  onChange={setTab}
+  items={[
+    { key: "active", label: "Активные · 24", content: <ActiveOrders /> },
+    { key: "done", label: "Выполненные", content: <DoneOrders /> },
+  ]}
+/>
+```
+
+Пропсы: `items` (`{ key?, label, content, disabled? }`), `index` или `defaultIndex`, `onChange(index)`, `aria-label`. Все панели рендерятся сразу, неактивные скрыты.
+
 ## Поведение
 
 - Стрелки влево и вправо, Home, End переключают вкладки.

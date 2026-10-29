@@ -9,6 +9,17 @@
 
 Содержимое строит скрипт из атрибутов. Когда данные приходят с сервера, обновляй через API: `MikholandUI.pagination(el).update({ total, page })`.
 
+
+## React
+
+```tsx
+import { Pagination } from "@mikholand/ui/react";
+
+<Pagination total={112} pageSize={20} page={page} onChange={setPage} noun="заказов" />
+```
+
+Компонент управляемый: `page` и `onChange` обязательны.
+
 ## Поведение
 
 - До 7 страниц показываются все; дальше — первая, последняя и соседние с текущей, пропуски — «…».

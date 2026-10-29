@@ -39,6 +39,33 @@
 
 Потребитель даёт логотип и знак продукта, пункты меню с иконками Lucide и содержимое `mk-workspace`.
 
+
+## React
+
+```tsx
+import Link from "next/link";
+import { AppShell, Sidebar, NavSection, NavItem, Main, Topbar, Workspace, Button } from "@mikholand/ui/react";
+
+<AppShell>
+  <Sidebar logo={<img src="/logo.svg" alt="Витрина" />} mark={<img src="/mark.svg" alt="" />}
+    footer={<><strong>Керамика</strong>Тариф Старт</>}>
+    <NavSection label="Магазин">
+      <NavItem as={Link} href="/orders" icon={<ShoppingBag />} current count={24}>Заказы</NavItem>
+      <NavItem as={Link} href="/goods" icon={<Package />}>Товары</NavItem>
+    </NavSection>
+  </Sidebar>
+  <Main>
+    <Topbar title="Заказы" meta="Магазин · 29 октября" actions={<>
+      <Button hideOnMobile>Экспорт</Button>
+      <Button variant="primary">Новый заказ</Button>
+    </>} />
+    <Workspace>…</Workspace>
+  </Main>
+</AppShell>
+```
+
+`Topbar` сам добавляет кнопку меню для телефона, `Sidebar` — кнопку закрытия drawer. `NavItem` принимает любой компонент ссылки через `as`. Событие открытия меню — `onDrawerChange` у `AppShell`.
+
 ## Ширины
 
 | Ширина | Сайдбар |

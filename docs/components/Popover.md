@@ -22,6 +22,27 @@
 
 Любой элемент с `data-mk-popover-close` закрывает панель. Потребитель сам обрабатывает клики по кнопкам действия.
 
+
+## React
+
+```tsx
+import { Popover, PopoverClose, Button } from "@mikholand/ui/react";
+
+<Popover
+  trigger={<Button icon={<SlidersHorizontal />}>Фильтр · 2</Button>}
+  title="Фильтр заказов"
+  align="start"
+  footer={<>
+    <PopoverClose><Button variant="ghost" onClick={reset}>Сбросить</Button></PopoverClose>
+    <PopoverClose><Button variant="primary" onClick={apply}>Показать 18</Button></PopoverClose>
+  </>}
+>
+  <Field label="Период">{(f) => <Select {...f} options={periods} value={period} onChange={setPeriod} />}</Field>
+</Popover>
+```
+
+`PopoverClose` закрывает панель после собственного `onClick` кнопки. `onOpenChange(open)` сообщает об открытии.
+
 ## Поведение
 
 - Ширина `min(320px, 100vw − 16px)`, не выходит за экран. Если не помещается, скроллится только тело, шапка и кнопки остаются видны.
