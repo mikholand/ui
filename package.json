@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "mikholand UI — плотная дизайн-система для рабочих интерфейсов и Telegram Mini App: токены, CSS-компоненты, поведение без зависимостей и React-обёртки",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mikholand/ui.git"
@@ -22,7 +22,8 @@
   "files": [
     "dist",
     "tokens/tokens.json",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
