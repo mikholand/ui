@@ -1,0 +1,22 @@
+[
+ "fonts",
+ "base",
+ "button",
+ "input",
+ "select",
+ "checkbox",
+ "segmented",
+ "tabs",
+ "status",
+ "app-shell",
+ "card",
+ "kpi",
+ "table",
+ "menu",
+ "popover",
+ "pagination",
+ "stepper",
+ "steplog",
+ "progress",
+ "motion"
+]

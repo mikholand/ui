@@ -1,0 +1,9 @@
+@media (prefers-reduced-motion: reduce) {
+  .mk-spinner { animation-duration: 2.4s; }
+  .mk-progress__bar,
+  .mk-sidebar,
+  .mk-backdrop,
+  .mk-segmented__indicator,
+  .mk-tabs__indicator,
+  .mk-select__trigger svg { transition: none; }
+}

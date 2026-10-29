@@ -1,0 +1,28 @@
+/* Field, Input, Textarea */
+.mk-field { display: grid; gap: var(--space-1\.5); min-width: 0; }
+.mk-label { font-family: var(--font-sans); font-size: 12px; font-weight: 800; line-height: 1.3; color: var(--text); }
+.mk-hint { font-family: var(--font-sans); font-size: 12px; line-height: 1.4; color: var(--text-muted); }
+.mk-hint--error { color: var(--danger-text); }
+
+.mk-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: var(--control-height);
+  margin: 0;
+  padding: 6px var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+textarea.mk-input { height: auto; min-height: 88px; padding-block: 7px; resize: vertical; }
+.mk-input::placeholder { color: var(--text-soft); opacity: 1; }
+.mk-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--line); }
+.mk-input[aria-invalid="true"] { border-color: var(--danger); }
+.mk-input:disabled { background: var(--surface-soft); color: var(--text-soft); cursor: not-allowed; }

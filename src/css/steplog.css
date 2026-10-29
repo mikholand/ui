@@ -1,0 +1,10 @@
+/* Step log */
+.mk-steplog { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; font-family: var(--font-sans); }
+.mk-steplog__item { display: flex; align-items: center; gap: var(--space-3); min-height: 40px; padding: 6px 8px; border-radius: var(--radius-md); color: var(--text-body); font-size: 14px; line-height: 1.35; }
+.mk-steplog__item[data-state="current"] { background: var(--surface-soft); color: var(--text); font-weight: 600; }
+.mk-steplog__item[data-state="upcoming"] { color: var(--text-muted); }
+.mk-steplog__marker { display: grid; place-items: center; width: 28px; height: 28px; flex: none; border-radius: 50%; background: var(--surface-soft); color: var(--text-muted); }
+.mk-steplog__item[data-state="current"] .mk-steplog__marker { background: var(--surface); }
+.mk-steplog__marker svg { width: 16px; height: 16px; }
+.mk-steplog__text { flex: 1 1 auto; min-width: 0; }
+.mk-steplog__meta { flex: none; color: var(--text-muted); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }

@@ -1,0 +1,17 @@
+/* Общие правила: шрифт и border-box для всех mk-компонентов */
+.mk-btn,
+.mk-input,
+.mk-select__trigger,
+.mk-select__option,
+.mk-check,
+.mk-segmented button,
+.mk-tabs__tab,
+.mk-status {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+[class^="mk-"], [class*=" mk-"],
+[class^="mk-"]::before, [class*=" mk-"]::before,
+[class^="mk-"]::after, [class*=" mk-"]::after,
+.mk-check input { box-sizing: border-box; }

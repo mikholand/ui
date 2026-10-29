@@ -1,0 +1,20 @@
+/* Status */
+.mk-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.mk-status__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.mk-status--success { background: var(--success-soft); color: var(--success-text); }
+.mk-status--warning { background: var(--warning-soft); color: var(--warning-text); }
+.mk-status--danger { background: var(--danger-soft); color: var(--danger-text); }
+.mk-status--process { background: var(--accent-soft); color: var(--accent-text); }

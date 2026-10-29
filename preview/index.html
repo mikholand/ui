@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mikholand UI · витрина</title>
+<link rel="stylesheet" href="../dist/styles.css">
+<style>
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+  .demo-top { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 14px 24px; background: var(--surface); box-shadow: inset 0 -1px 0 var(--line); }
+  .demo-top h1 { margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .demo-top nav { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; }
+  .demo-top nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .demo-top nav a:hover { color: var(--accent-text); }
+  .demo-top .mk-segmented { margin-left: auto; }
+  .demo { display: grid; gap: 28px; max-width: 1240px; margin: 0 auto; padding: 24px; }
+  .demo-sec { display: grid; gap: 12px; scroll-margin-top: 80px; }
+  .demo-sec__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .demo-sec__head h2 { margin: 0; font-size: 18px; font-weight: 800; }
+  .demo-sec__head span { color: var(--text-muted); font-size: 13px; }
+  .demo-sec__body { display: grid; gap: 16px; min-width: 0; }
+  .demo-shell { height: 600px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); }
+  .demo-shell .mk-app { height: 100%; }
+  .demo-surface { padding: 16px; border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-card); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+  .stack { display: grid; gap: var(--space-4); }
+  .demo-word { font: 800 17px/1 var(--font-sans); letter-spacing: -0.02em; }
+  .demo-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--nav-active); font: 800 14px/1 var(--font-sans); }
+</style>
+</head>
+<body>
+  <header class="demo-top">
+    <h1>mikholand UI</h1>
+    <nav><a href="#appshell">AppShell</a> <a href="#button">Button</a> <a href="#input">Input</a> <a href="#select">Select</a> <a href="#checkbox">Checkbox</a> <a href="#tabs">Tabs</a> <a href="#segmented">Segmented</a> <a href="#pagination">Pagination</a> <a href="#kpi">Kpi</a> <a href="#card">Card</a> <a href="#table">Table</a> <a href="#status">Status</a> <a href="#menu">Menu</a> <a href="#popover">Popover</a> <a href="#stepper">Stepper</a> <a href="#steplog">StepLog</a> <a href="#progress">Progress</a></nav>
+    <div class="mk-segmented" data-mk-segmented aria-label="Тема" id="theme">
+      <button data-value="light" aria-checked="true">Светлая</button>
+      <button data-value="dark">Тёмная</button>
+    </div>
+  </header>
+  <div class="demo">
+    <section class="demo-sec" id="appshell">
+      <div class="demo-sec__head"><h2>AppShell</h2><span>Каркас · сайдбар, topbar, content-frame; до 1180px сайдбар из иконок, до 720px drawer справа</span></div>
+      <div class="demo-sec__body">
+<div class="demo-shell"><div class="mk-app" data-mk-app>
+  <aside class="mk-sidebar" aria-label="Основная навигация">
+    <div class="mk-sidebar__brand">
+      <a class="mk-sidebar__logo" href="#"><span class="demo-word">витрина</span></a>
+      <a class="mk-sidebar__mark" href="#" aria-label="Витрина"><span class="demo-mark">в</span></a>
+      <button class="mk-btn mk-btn--ghost mk-btn--icon mk-sidebar__close" type="button" data-mk-drawer-close aria-label="Закрыть меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <nav class="mk-sidebar__scroll" aria-label="Разделы">
+      <div class="mk-nav-section">
+        <span class="mk-nav-section__label">Магазин</span>
+        <a class="mk-nav-item" href="#orders" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="mk-nav-item__text">Заказы</span><span class="mk-nav-item__count">24</span></a>
+        <a class="mk-nav-item" href="#goods"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><span class="mk-nav-item__text">Товары</span></a>
+        <a class="mk-nav-item" href="#clients"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="mk-nav-item__text">Покупатели</span></a>
+        <a class="mk-nav-item" href="#chats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="mk-nav-item__text">Сообщения</span><span class="mk-nav-item__count">5</span></a>
+      </div>
+      <div class="mk-nav-section">
+        <span class="mk-nav-section__label">Отчёты</span>
+        <a class="mk-nav-item" href="#analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="mk-nav-item__text">Аналитика</span></a>
+        <a class="mk-nav-item" href="#settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span class="mk-nav-item__text">Настройки</span></a>
+      </div>
+    </nav>
+    <div class="mk-sidebar__footer"><strong>Керамика ручной работы</strong>Тариф Старт · версия 0.1</div>
+  </aside>
+  <div class="mk-main">
+    <div class="mk-frame">
+      <div class="mk-frame__scroll">
+        <header class="mk-topbar">
+          <div class="mk-topbar__title">
+            <span class="mk-topbar__meta">Магазин · 29 октября</span>
+            <h1 class="mk-topbar__heading">Заказы</h1>
+          </div>
+          <div class="mk-topbar__actions">
+            <button class="mk-btn mk-btn--secondary mk-hide-mobile" type="button">Экспорт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></button>
+            <button class="mk-btn mk-btn--primary" type="button">Новый заказ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+            <button class="mk-btn mk-btn--secondary mk-btn--icon mk-topbar__menu" type="button" data-mk-drawer-open aria-label="Открыть меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+          </div>
+        </header>
+        <main class="mk-workspace">
+<div class="mk-kpi-grid">
+  <div class="mk-kpi"><span class="mk-kpi__label">Выручка за неделю</span><span class="mk-kpi__value">184 320 ₽</span><span class="mk-kpi__meta"><span class="mk-kpi__delta mk-kpi__delta--up">+12,4%</span>к прошлой неделе</span></div>
+  <div class="mk-kpi"><span class="mk-kpi__label">Заказы</span><span class="mk-kpi__value">112</span><span class="mk-kpi__meta"><span class="mk-kpi__delta mk-kpi__delta--up">+9</span>к прошлой неделе</span></div>
+  <div class="mk-kpi"><span class="mk-kpi__label">Средний чек</span><span class="mk-kpi__value">1 646 ₽</span><span class="mk-kpi__meta"><span class="mk-kpi__delta mk-kpi__delta--down">−3,1%</span>к прошлой неделе</span></div>
+  <div class="mk-kpi"><span class="mk-kpi__label">Ждут оплаты</span><span class="mk-kpi__value">3</span><span class="mk-kpi__meta">дольше суток: 1</span></div>
+</div>
+          <section class="mk-card">
+            <div class="mk-card__head"><div class="mk-card__titles"><h2 class="mk-card__title">Последние заказы</h2><p class="mk-card__desc">5 из 24 за неделю</p></div></div>
+            <div class="mk-card__body mk-card__body--flush">
+<div class="mk-table-wrap">
+  <table class="mk-table">
+    <thead>
+      <tr>
+        <th scope="col">Заказ</th>
+        <th scope="col">Покупатель</th>
+        <th scope="col">Товары</th>
+        <th scope="col" class="mk-num" aria-sort="descending"><button class="mk-table__sort" type="button">Сумма <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></th>
+        <th scope="col">Статус</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20481</span><span class="mk-table__secondary">сегодня, 12:40</span></td>
+        <td>Анна Ковалёва</td>
+        <td class="mk-wrap">Ваза «Туман», 2 шт.</td>
+        <td class="mk-num">4 580 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--success"><span class="mk-status__dot"></span>Оплачен</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20480</span><span class="mk-table__secondary">сегодня, 11:05</span></td>
+        <td>Илья Морозов</td>
+        <td class="mk-wrap">Набор тарелок</td>
+        <td class="mk-num">7 200 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--process"><span class="mk-status__dot"></span>В сборке</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20479</span><span class="mk-table__secondary">вчера, 21:17</span></td>
+        <td>Светлана Ли</td>
+        <td class="mk-wrap">Кружка ручной работы</td>
+        <td class="mk-num">1 290 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--warning"><span class="mk-status__dot"></span>Ждёт оплаты</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20478</span><span class="mk-table__secondary">вчера, 18:02</span></td>
+        <td>Дмитрий Орлов</td>
+        <td class="mk-wrap">Подсвечник, 3 шт.</td>
+        <td class="mk-num">2 970 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--success"><span class="mk-status__dot"></span>Оплачен</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20477</span><span class="mk-table__secondary">вчера, 09:30</span></td>
+        <td>Мария Чен</td>
+        <td class="mk-wrap">Плед льняной</td>
+        <td class="mk-num">5 400 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--danger"><span class="mk-status__dot"></span>Отменён</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="button">
+      <div class="demo-sec__head"><h2>Button</h2><span>Действия · primary, secondary, ghost, danger, icon</span></div>
+      <div class="demo-sec__body">
+<div class="stack">
+  <div class="row">
+    <button class="mk-btn mk-btn--primary">Сохранить</button>
+    <button class="mk-btn mk-btn--primary">Опубликовать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    <button class="mk-btn mk-btn--secondary">Экспорт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></button>
+    <button class="mk-btn mk-btn--ghost">Отмена</button>
+    <button class="mk-btn mk-btn--danger">Удалить <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+  </div>
+  <div class="row">
+    <button class="mk-btn mk-btn--secondary mk-btn--icon" aria-label="Добавить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+    <button class="mk-btn mk-btn--ghost mk-btn--icon" aria-label="Ещё действия"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button>
+    <button class="mk-btn mk-btn--primary" disabled>Недоступно</button>
+    <button class="mk-btn mk-btn--secondary" disabled>Недоступно</button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="input">
+      <div class="demo-sec__head"><h2>Input</h2><span>Поля · input, textarea, подсказка, ошибка</span></div>
+      <div class="demo-sec__body">
+<div class="stack" style="max-width:420px">
+  <div class="mk-field">
+    <label class="mk-label" for="in-name">Название канала</label>
+    <input class="mk-input" id="in-name" placeholder="Например, Витрина посуды" value="Керамика ручной работы">
+    <span class="mk-hint">Видно покупателям в заголовке витрины.</span>
+  </div>
+  <div class="mk-field">
+    <label class="mk-label" for="in-price">Цена, ₽</label>
+    <input class="mk-input" id="in-price" inputmode="numeric" value="тысяча" aria-invalid="true" aria-describedby="in-price-err">
+    <span class="mk-hint mk-hint--error" id="in-price-err">Введите число, например 1 290.</span>
+  </div>
+  <div class="mk-field">
+    <label class="mk-label" for="in-desc">Описание</label>
+    <textarea class="mk-input" id="in-desc" placeholder="Пара предложений о товаре"></textarea>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="select">
+      <div class="demo-sec__head"><h2>Select</h2><span>Поля · кастомный dropdown поверх нативного select</span></div>
+      <div class="demo-sec__body">
+<div class="row" style="align-items:start;gap:var(--space-4)">
+  <div class="mk-field" style="width:240px">
+    <label class="mk-label" for="sel-period">Период</label>
+    <div class="mk-select" data-mk-select>
+      <select id="sel-period" name="period">
+        <option value="today">Сегодня</option>
+        <option value="7d" selected>Последние 7 дней</option>
+        <option value="30d">Последние 30 дней</option>
+        <option value="q">Текущий квартал</option>
+        <option value="custom" disabled>Свой период (скоро)</option>
+      </select>
+    </div>
+  </div>
+  <div class="mk-field" style="width:240px">
+    <label class="mk-label" for="sel-cat">Категория</label>
+    <div class="mk-select" data-mk-select data-placeholder="Все категории">
+      <select id="sel-cat" name="category">
+        <option value="" hidden selected></option>
+        <option value="dish">Посуда</option>
+        <option value="textile">Текстиль</option>
+        <option value="decor">Декор</option>
+        <option value="light">Освещение</option>
+      </select>
+    </div>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="checkbox">
+      <div class="demo-sec__head"><h2>Checkbox</h2><span>Поля · checkbox для независимых настроек, radio для одного варианта</span></div>
+      <div class="demo-sec__body">
+<div class="row" style="align-items:start;gap:40px">
+  <fieldset class="mk-choice-group" role="group" aria-label="Уведомления">
+    <span class="mk-label">Уведомления</span>
+    <label class="mk-check"><input type="checkbox" checked> Новые заказы</label>
+    <label class="mk-check"><input type="checkbox"> Отзывы покупателей</label>
+    <label class="mk-check"><input type="checkbox" id="cb-mixed"> Все каналы</label>
+    <label class="mk-check"><input type="checkbox" disabled> Рассылки (на тарифе Про)</label>
+  </fieldset>
+  <fieldset class="mk-choice-group" role="radiogroup" aria-label="Доставка">
+    <span class="mk-label">Доставка</span>
+    <label class="mk-check"><input type="radio" name="ship" checked><span>Курьер<span class="mk-check__hint">1–2 дня, 390 ₽</span></span></label>
+    <label class="mk-check"><input type="radio" name="ship"><span>Пункт выдачи<span class="mk-check__hint">3–5 дней, 190 ₽</span></span></label>
+    <label class="mk-check"><input type="radio" name="ship"> Самовывоз</label>
+  </fieldset>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="tabs">
+      <div class="demo-sec__head"><h2>Tabs</h2><span>Навигация · подчёркивание акцентом, переезжает между вкладками</span></div>
+      <div class="demo-sec__body">
+<div class="mk-tabs" data-mk-tabs style="max-width:560px">
+  <div class="mk-tabs__list" aria-label="Заказы">
+    <button class="mk-tabs__tab" aria-selected="true">Активные · 24</button>
+    <button class="mk-tabs__tab">Ждут оплаты · 3</button>
+    <button class="mk-tabs__tab">Выполненные</button>
+    <button class="mk-tabs__tab">Отменённые</button>
+  </div>
+  <div class="mk-tabs__panel">24 заказа в работе, 5 из них нужно отправить сегодня.</div>
+  <div class="mk-tabs__panel">3 заказа ждут оплаты дольше суток.</div>
+  <div class="mk-tabs__panel">За неделю выполнено 112 заказов.</div>
+  <div class="mk-tabs__panel">Отменённых заказов за неделю нет.</div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="segmented">
+      <div class="demo-sec__head"><h2>Segmented</h2><span>Навигация · переключатель с переезжающей подложкой</span></div>
+      <div class="demo-sec__body">
+<div class="demo-surface"><div class="stack">
+  <div class="mk-segmented" data-mk-segmented aria-label="Период графика">
+    <button data-value="day">День</button>
+    <button data-value="week" aria-checked="true">Неделя</button>
+    <button data-value="month">Месяц</button>
+    <button data-value="year">Год</button>
+  </div>
+  <div class="mk-segmented" data-mk-segmented aria-label="Вид списка">
+    <button aria-checked="true">Таблица</button>
+    <button>Карточки</button>
+  </div>
+</div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="pagination">
+      <div class="demo-sec__head"><h2>Pagination</h2><span>Навигация · страницы по 32px, отчёт для скринридера; собирается из data-атрибутов</span></div>
+      <div class="demo-sec__body">
+<div style="display:grid;gap:18px">
+  <nav class="mk-pagination" data-mk-pagination data-total="112" data-page-size="20" data-page="1" data-noun="заказов"></nav>
+  <nav class="mk-pagination" data-mk-pagination data-total="1840" data-page-size="20" data-page="12" aria-label="Страницы товаров"></nav>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="kpi">
+      <div class="demo-sec__head"><h2>Kpi</h2><span>Данные · KPI-карточки в автосетке, дельта к прошлому периоду</span></div>
+      <div class="demo-sec__body">
+<div class="mk-kpi-grid">
+  <div class="mk-kpi"><span class="mk-kpi__label">Выручка за неделю</span><span class="mk-kpi__value">184 320 ₽</span><span class="mk-kpi__meta"><span class="mk-kpi__delta mk-kpi__delta--up">+12,4%</span>к прошлой неделе</span></div>
+  <div class="mk-kpi"><span class="mk-kpi__label">Заказы</span><span class="mk-kpi__value">112</span><span class="mk-kpi__meta"><span class="mk-kpi__delta mk-kpi__delta--up">+9</span>к прошлой неделе</span></div>
+  <div class="mk-kpi"><span class="mk-kpi__label">Средний чек</span><span class="mk-kpi__value">1 646 ₽</span><span class="mk-kpi__meta"><span class="mk-kpi__delta mk-kpi__delta--down">−3,1%</span>к прошлой неделе</span></div>
+  <div class="mk-kpi"><span class="mk-kpi__label">Ждут оплаты</span><span class="mk-kpi__value">3</span><span class="mk-kpi__meta">дольше суток: 1</span></div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="card">
+      <div class="demo-sec__head"><h2>Card</h2><span>Данные · карточка виджета: шапка, тело, действия; без рамки, отделяется заливкой и тенью</span></div>
+      <div class="demo-sec__body">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;align-items:start">
+  <section class="mk-card">
+    <div class="mk-card__head">
+      <div class="mk-card__titles"><h2 class="mk-card__title">Очередь отправки</h2><p class="mk-card__desc">Нужно отправить сегодня</p></div>
+      <div class="mk-card__actions"><button class="mk-btn mk-btn--ghost" type="button">Все</button></div>
+    </div>
+    <div class="mk-card__body">5 заказов, самый ранний принят вчера в 21:17. Курьер приедет с 15:00 до 17:00.</div>
+    <div class="mk-card__foot"><button class="mk-btn mk-btn--secondary" type="button">Распечатать накладные</button><button class="mk-btn mk-btn--primary" type="button">Вызвать курьера</button></div>
+  </section>
+  <section class="mk-card">
+    <div class="mk-card__head"><h2 class="mk-card__title">Склад</h2><span class="mk-status mk-status--warning">Мало</span></div>
+    <div class="mk-card__body">Кружка ручной работы: осталось 2 шт. По темпу продаж хватит на 3 дня.</div>
+  </section>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="table">
+      <div class="demo-sec__head"><h2>Table</h2><span>Данные · плотная таблица в карточке, сортировка, статусы, выбранная строка</span></div>
+      <div class="demo-sec__body">
+<section class="mk-card">
+  <div class="mk-card__head"><div class="mk-card__titles"><h2 class="mk-card__title">Заказы</h2><p class="mk-card__desc">Сортировка по сумме</p></div></div>
+  <div class="mk-card__body mk-card__body--flush">
+<div class="mk-table-wrap">
+  <table class="mk-table">
+    <thead>
+      <tr>
+        <th scope="col">Заказ</th>
+        <th scope="col">Покупатель</th>
+        <th scope="col">Товары</th>
+        <th scope="col" class="mk-num" aria-sort="descending"><button class="mk-table__sort" type="button">Сумма <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></th>
+        <th scope="col">Статус</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20481</span><span class="mk-table__secondary">сегодня, 12:40</span></td>
+        <td>Анна Ковалёва</td>
+        <td class="mk-wrap">Ваза «Туман», 2 шт.</td>
+        <td class="mk-num">4 580 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--success"><span class="mk-status__dot"></span>Оплачен</span></td>
+      </tr>
+      <tr aria-selected="true">
+        <td><span class="mk-table__primary">ORD-20480</span><span class="mk-table__secondary">сегодня, 11:05</span></td>
+        <td>Илья Морозов</td>
+        <td class="mk-wrap">Набор тарелок</td>
+        <td class="mk-num">7 200 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--process"><span class="mk-status__dot"></span>В сборке</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20479</span><span class="mk-table__secondary">вчера, 21:17</span></td>
+        <td>Светлана Ли</td>
+        <td class="mk-wrap">Кружка ручной работы</td>
+        <td class="mk-num">1 290 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--warning"><span class="mk-status__dot"></span>Ждёт оплаты</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20478</span><span class="mk-table__secondary">вчера, 18:02</span></td>
+        <td>Дмитрий Орлов</td>
+        <td class="mk-wrap">Подсвечник, 3 шт.</td>
+        <td class="mk-num">2 970 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--success"><span class="mk-status__dot"></span>Оплачен</span></td>
+      </tr>
+      <tr>
+        <td><span class="mk-table__primary">ORD-20477</span><span class="mk-table__secondary">вчера, 09:30</span></td>
+        <td>Мария Чен</td>
+        <td class="mk-wrap">Плед льняной</td>
+        <td class="mk-num">5 400 ₽</td>
+        <td class="mk-shrink"><span class="mk-status mk-status--danger"><span class="mk-status__dot"></span>Отменён</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+</section>
+      </div>
+    </section>
+    <section class="demo-sec" id="status">
+      <div class="demo-sec__head"><h2>Status</h2><span>Данные · пилюли статусов, слово всегда рядом с цветом</span></div>
+      <div class="demo-sec__body">
+<div class="row">
+  <span class="mk-status mk-status--success"><span class="mk-status__dot"></span>Оплачен</span>
+  <span class="mk-status mk-status--process"><span class="mk-status__dot"></span>В сборке</span>
+  <span class="mk-status mk-status--warning"><span class="mk-status__dot"></span>Ждёт оплаты</span>
+  <span class="mk-status mk-status--danger"><span class="mk-status__dot"></span>Отменён</span>
+  <span class="mk-status">Черновик</span>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="menu">
+      <div class="demo-sec__head"><h2>Menu</h2><span>Оверлеи · меню действий: клавиатура, поиск по букве, закрытие по клику вне и Escape</span></div>
+      <div class="demo-sec__body">
+<div class="row">
+  <div data-mk-menu data-align="start">
+    <button class="mk-btn mk-btn--secondary" data-mk-menu-trigger>Действия <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="mk-menu" aria-label="Действия с заказом">
+      <button class="mk-menu__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.17 6.81a1 1 0 0 0-3.98-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/></svg>Редактировать<span class="mk-menu__hint">E</span></button>
+      <button class="mk-menu__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Дублировать</button>
+      <button class="mk-menu__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>В архив</button>
+      <button class="mk-menu__item" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Счёт (нет реквизитов)</button>
+      <div class="mk-menu__sep"></div>
+      <button class="mk-menu__item mk-menu__item--danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Удалить заказ</button>
+    </div>
+  </div>
+  <div data-mk-menu>
+    <button class="mk-btn mk-btn--ghost mk-btn--icon" data-mk-menu-trigger aria-label="Ещё"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button>
+    <div class="mk-menu" aria-label="Ещё">
+      <span class="mk-menu__label">Экспорт</span>
+      <button class="mk-menu__item">CSV</button>
+      <button class="mk-menu__item">Excel</button>
+    </div>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="popover">
+      <div class="demo-sec__head"><h2>Popover</h2><span>Оверлеи · панель фильтра: шапка и действия закреплены, тело скроллится; select внутри не закрывает popover</span></div>
+      <div class="demo-sec__body">
+<div data-mk-popover data-align="start">
+  <button class="mk-btn mk-btn--secondary" data-mk-popover-trigger>Фильтр <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></button>
+  <div class="mk-popover">
+    <div class="mk-popover__head"><h2 class="mk-popover__title">Фильтр заказов</h2><button class="mk-btn mk-btn--ghost mk-btn--icon" data-mk-popover-close aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+    <div class="mk-popover__body">
+      <div class="mk-field">
+        <label class="mk-label" for="pf-period">Период</label>
+        <div class="mk-select" data-mk-select>
+          <select id="pf-period"><option>Сегодня</option><option selected>Последние 7 дней</option><option>Последние 30 дней</option></select>
+        </div>
+      </div>
+      <fieldset class="mk-choice-group" role="group" aria-label="Статус">
+        <span class="mk-label">Статус</span>
+        <label class="mk-check"><input type="checkbox" checked> Оплачен</label>
+        <label class="mk-check"><input type="checkbox" checked> В сборке</label>
+        <label class="mk-check"><input type="checkbox"> Ждёт оплаты</label>
+        <label class="mk-check"><input type="checkbox"> Отменён</label>
+      </fieldset>
+    </div>
+    <div class="mk-popover__foot"><button class="mk-btn mk-btn--ghost" data-mk-popover-close>Сбросить</button><button class="mk-btn mk-btn--primary" data-mk-popover-close>Показать 18</button></div>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="stepper">
+      <div class="demo-sec__head"><h2>Stepper</h2><span>Процессы · шаги мастера; на ширине до 520px складываются в колонку</span></div>
+      <div class="demo-sec__body">
+<div class="demo-surface"><ol class="mk-stepper" aria-label="Подключение канала">
+  <li class="mk-step" data-state="done"><span class="mk-step__marker" aria-hidden="true"></span><span class="mk-step__body"><span class="mk-step__title">Канал</span><span class="mk-step__desc">@keramika_ru</span></span></li>
+  <li class="mk-step" data-state="done"><span class="mk-step__marker" aria-hidden="true"></span><span class="mk-step__body"><span class="mk-step__title">Права бота</span><span class="mk-step__desc">Выданы</span></span></li>
+  <li class="mk-step" data-state="current" aria-current="step"><span class="mk-step__marker" aria-hidden="true"></span><span class="mk-step__body"><span class="mk-step__title">Товары</span><span class="mk-step__desc">Разбираем посты</span></span></li>
+  <li class="mk-step" data-state="upcoming"><span class="mk-step__marker" aria-hidden="true"></span><span class="mk-step__body"><span class="mk-step__title">Оплата</span><span class="mk-step__desc">ЮKassa или СБП</span></span></li>
+  <li class="mk-step" data-state="upcoming"><span class="mk-step__marker" aria-hidden="true"></span><span class="mk-step__body"><span class="mk-step__title">Публикация</span></span></li>
+</ol>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="steplog">
+      <div class="demo-sec__head"><h2>StepLog</h2><span>Процессы · лог шагов: плотный список, текущий шаг с нейтральным спиннером</span></div>
+      <div class="demo-sec__body">
+<div class="demo-surface"><ol class="mk-steplog" aria-label="Импорт товаров">
+  <li class="mk-steplog__item" data-state="done"><span class="mk-steplog__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="mk-steplog__text">Получили 214 постов из канала</span><span class="mk-steplog__meta">12:40:02</span></li>
+  <li class="mk-steplog__item" data-state="done"><span class="mk-steplog__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="mk-steplog__text">Нашли 86 товаров с ценой</span><span class="mk-steplog__meta">12:40:19</span></li>
+  <li class="mk-steplog__item" data-state="current"><span class="mk-steplog__marker"><span class="mk-spinner mk-spinner--sm mk-spinner--neutral" aria-hidden="true"></span></span><span class="mk-steplog__text" role="status" aria-live="polite">Загружаем фото: 41 из 86</span><span class="mk-steplog__meta">идёт</span></li>
+  <li class="mk-steplog__item" data-state="upcoming"><span class="mk-steplog__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/></svg></span><span class="mk-steplog__text">Разложим по категориям</span><span class="mk-steplog__meta">ждёт</span></li>
+</ol>
+</div>
+      </div>
+    </section>
+    <section class="demo-sec" id="progress">
+      <div class="demo-sec__head"><h2>Progress</h2><span>Процессы · progress bar 8px и спиннер 16–20px; статус рядом с конкретным файлом</span></div>
+      <div class="demo-sec__body">
+<div class="demo-surface"><div style="display:grid;gap:18px;max-width:460px">
+  <div class="mk-progress-field">
+    <div class="mk-progress-field__row"><span id="pg-lbl">Загрузка каталога</span><span class="mk-progress-field__value">64%</span></div>
+    <div class="mk-progress" role="progressbar" aria-labelledby="pg-lbl" aria-valuemin="0" aria-valuemax="100" aria-valuenow="64"><span class="mk-progress__bar" style="width:64%"></span></div>
+  </div>
+  <div style="display:grid;gap:8px">
+    <div class="row" style="justify-content:space-between;font-size:14px"><span class="row"><svg width="16" height="16" style="color:var(--text-muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> price-oct.xlsx</span><span class="row" style="color:var(--text-muted);font-size:13px"><span class="mk-spinner mk-spinner--sm" aria-hidden="true"></span><span role="status" aria-live="polite">Проверяем</span></span></div>
+    <div class="row" style="justify-content:space-between;font-size:14px"><span class="row"><svg width="16" height="16" style="color:var(--text-muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> photos.zip</span><span class="mk-status mk-status--success">Загружен</span></div>
+  </div>
+  <div class="row"><button class="mk-btn mk-btn--primary" disabled aria-busy="true">Сохраняем <span class="mk-spinner" aria-hidden="true"></span></button><span class="mk-spinner mk-spinner--lg" role="status" aria-label="Загрузка"></span></div>
+</div>
+</div>
+      </div>
+    </section>
+  </div>
+  <script src="../dist/mikholand-ui.global.js"></script>
+  <script>
+    MikholandUI.init();
+    document.getElementById("cb-mixed").indeterminate = true;
+    document.getElementById("theme").addEventListener("mk:change", function (e) {
+      document.documentElement.setAttribute("data-theme", e.detail.value);
+    });
+  </script>
+</body>
+</html>

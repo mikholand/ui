@@ -1,0 +1,24 @@
+/* Card */
+.mk-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-sans);
+  color: var(--text);
+}
+.mk-card__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 13px var(--space-3\.5); }
+.mk-card__titles { display: grid; gap: 2px; min-width: 0; }
+.mk-card__title { margin: 0; color: var(--text); font-size: 15px; font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; }
+.mk-card__desc { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.4; }
+.mk-card__actions { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+.mk-card__body { padding: 0 var(--space-3\.5) var(--space-3\.5); min-width: 0; color: var(--text-body); font-size: 14px; line-height: 1.45; }
+.mk-card__body--flush { padding: 0; }
+.mk-card__foot { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-2); padding: 0 var(--space-3\.5) var(--space-3\.5); }
+
+/* Плотная раскладка разновысотных карточек без дыр */
+.mk-masonry { column-width: 340px; column-gap: var(--space-4); }
+.mk-masonry > * { break-inside: avoid; margin-bottom: var(--space-4); }

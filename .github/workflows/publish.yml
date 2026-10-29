@@ -1,0 +1,27 @@
+name: Publish
+# Публикация в npm по тегу вида v0.2.0. Нужен секрет репозитория NPM_TOKEN.
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - name: Тег совпадает с версией в package.json
+        run: |
+          VERSION="v$(node -p "require('./package.json').version")"
+          if [ "$VERSION" != "$GITHUB_REF_NAME" ]; then echo "Тег $GITHUB_REF_NAME не совпадает с версией $VERSION"; exit 1; fi
+      - run: npm ci
+      - run: npm run check
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

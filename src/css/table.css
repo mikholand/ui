@@ -1,0 +1,54 @@
+/* Table */
+.mk-table-wrap { max-width: 100%; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; }
+.mk-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+.mk-table th {
+  padding: 10px 12px;
+  background: var(--table-head);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mk-table td { padding: 11px 12px; border-top: 1px solid var(--line); vertical-align: middle; white-space: nowrap; }
+.mk-table td.mk-wrap { white-space: normal; min-width: 180px; }
+.mk-table tbody tr { transition: background-color 120ms ease; }
+.mk-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 3.5%, transparent); }
+.mk-table tbody tr[aria-selected="true"] { background: var(--accent-softer); }
+.mk-table .mk-num { text-align: right; white-space: nowrap; }
+.mk-table .mk-shrink { width: 1%; white-space: nowrap; }
+.mk-table__primary { display: block; color: var(--text); font-weight: 600; }
+.mk-table__secondary { display: block; color: var(--text-muted); font-size: 12px; }
+.mk-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+.mk-table__sort svg { width: 14px; height: 14px; opacity: 0.6; }
+.mk-table th[aria-sort="ascending"] .mk-table__sort,
+.mk-table th[aria-sort="descending"] .mk-table__sort { color: var(--text); }
+.mk-table th[aria-sort="ascending"] .mk-table__sort svg { transform: rotate(180deg); }
+.mk-table th[aria-sort] .mk-table__sort svg { opacity: 1; }
+.mk-table__sort:focus-visible { outline: 2px solid var(--text-muted); outline-offset: 2px; border-radius: 4px; }
+.mk-empty { display: grid; justify-items: center; gap: 6px; padding: 32px 16px; color: var(--text-muted); font-family: var(--font-sans); font-size: 14px; text-align: center; }
+.mk-empty__title { color: var(--text); font-size: 15px; font-weight: 800; }
