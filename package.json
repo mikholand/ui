@@ -74,7 +74,8 @@
     "typecheck": "npm run tokens && tsc --noEmit",
     "check": "npm run typecheck && npm run build",
     "preview": "npm run build && npx --yes serve -l 3200 .",
-    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "design-system": "npm run build && node scripts/build-design-system.mjs"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -91,6 +92,7 @@
   "devDependencies": {
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "esbuild": "^0.24.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsup": "^8.3.5",

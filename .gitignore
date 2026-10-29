@@ -3,3 +3,4 @@ dist/
 src/tokens.ts
 *.log
 .DS_Store
+design-system/
