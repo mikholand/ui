@@ -19,8 +19,9 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: Тег совпадает с версией в package.json
         run: |
-          VERSION="v$(node -p "require('./package.json').version")"
-          if [ "$VERSION" != "$GITHUB_REF_NAME" ]; then echo "Тег $GITHUB_REF_NAME не совпадает с версией $VERSION"; exit 1; fi
+          VERSION="$(node -p "require('./package.json').version")"
+          TAG="${GITHUB_REF_NAME#v}"
+          if [ "$VERSION" != "$TAG" ]; then echo "Тег $GITHUB_REF_NAME не совпадает с версией $VERSION в package.json"; exit 1; fi
       - run: npm ci
       - run: npm run check
       - run: npm publish --provenance --access public
