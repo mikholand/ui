@@ -1,8 +1,9 @@
 name: Publish
-# Публикация в npm по тегу вида v0.2.0. Нужен секрет репозитория NPM_TOKEN.
+# Публикация в npm при публикации GitHub Release с тегом вида v0.2.0.
+# Нужен секрет репозитория NPM_TOKEN (после перехода на trusted publishing — не нужен).
 on:
-  push:
-    tags: ["v*"]
+  release:
+    types: [published]
 permissions:
   contents: read
   id-token: write

@@ -22,4 +22,4 @@
 
 - `npm run check` — типы и сборка. Запускать перед каждым коммитом.
 - `npm run preview` — сборка и витрина на http://localhost:3200/preview/.
-- Релиз: поднять `version` в package.json, закоммитить, `git tag v<версия> && git push --tags`; workflow `publish.yml` опубликует в npm.
+- Релиз: поднять `version` в package.json и закоммитить в `main`, затем опубликовать GitHub Release с тегом `v<версия>`; workflow `publish.yml` опубликует в npm.

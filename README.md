@@ -116,6 +116,6 @@ npm run preview   # витрина: http://localhost:3200/preview/
 
 ## Релиз
 
-1. Поднять `version` в `package.json` и закоммитить.
-2. `git tag v<версия> && git push --tags`.
-3. Workflow `publish.yml` проверит, что тег совпадает с версией, соберёт пакет и опубликует его в npm. Нужен секрет репозитория `NPM_TOKEN`.
+1. Поднять `version` в `package.json` и закоммитить в `main`.
+2. На GitHub: Releases → Draft a new release → тег `v<версия>` (создать при публикации, цель `main`) → описать изменения → Publish release.
+3. Workflow `publish.yml` проверит, что тег совпадает с версией, соберёт пакет и опубликует его в npm.
